@@ -1,8 +1,14 @@
 import pandas as pd
 
+# Function to pull ICAO call sign
+def call_sign(file_path):
+    icao_code = pd.read_csv(file_path).iloc[0, 0]
+    return f"K{icao_code}"
+
 # Function to load data from CSV
 def load_data(file_path):
     """Load specific columns from a CSV file."""
+    # Assuming columns 1 and 2 are date and temp, respectively 
     return pd.read_csv(file_path, usecols=[1, 2])
 
 # Function to preprocess data types
