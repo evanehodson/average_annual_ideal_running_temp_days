@@ -1,5 +1,56 @@
 import pandas as pd
 from datetime import datetime
+import json
+import requests
+
+
+def get_stations_from_networks():
+    """Build a station list by using a bunch of IEM networks."""
+    stations = []
+    states = (
+        "AK AL AR AZ CA CO CT DE FL GA HI IA ID IL IN KS KY LA MA MD ME MI MN "
+        "MO MS MT NC ND NE NH NJ NM NV NY OH OK OR PA RI SC SD TN TX UT VA VT "
+        "WA WI WV WY"
+    )
+    networks = [f"{state}_ASOS" for state in states.split()]
+
+    for network in networks:
+        # Get metadata
+        uri = f"https://mesonet.agron.iastate.edu/geojson/network/{network}.geojson"
+        try:
+            response = requests.get(uri)
+            response.raise_for_status()  # Check for request errors
+            jdict = response.json()
+            
+            # Extract station IDs
+            for site in jdict["features"]:
+                stations.append(site["properties"]["sid"])
+                
+        except requests.RequestException as e:
+            print(f"Failed to retrieve data for network {network}: {e}")
+    
+    return stations
+
+# Example usage
+station_list = get_stations_from_networks()
+print(f"Total stations found: {len(station_list)}")
+
+
+def get_cleaned_station_list(station_list):
+    """Apply cleaning to a list of station IDs and remove any invalid entries."""
+    cleaned_stations = []
+    for station in station_list:
+        # Exclude IDs that start with a number
+        if station[0].isdigit():
+            continue
+        # Keep IDs that are exactly 4 characters long unchanged
+        elif len(station) == 4:
+            cleaned_stations.append(station)
+        # Add "K" in front of IDs shorter than 4 characters
+        else:
+            cleaned_stations.append(f"K{station}")
+    return cleaned_stations
+
 
 # Function to pull ICAO call sign
 def call_sign(file_path):
@@ -88,7 +139,7 @@ def write_all_results_to_csv(dataset, output_path=None):
         aairtd = average_annual_ideal_run_temp_days(file_path, time_zone)
         
         # Append the result as a dictionary
-        results.append({"icao_code": icao_code, "aairtd": aairtd})
+        results.append({"ICAO": icao_code, "aairtd": aairtd})
     
     # Convert results to a DataFrame and write to CSV
     results_df = pd.DataFrame(results)
