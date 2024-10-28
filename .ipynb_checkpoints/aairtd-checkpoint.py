@@ -71,3 +71,20 @@ def average_annual_ideal_run_temp_days(file_path, time_zone):
     complete_years = get_complete_years(filtered_data)
     complete_data = filter_complete_years(filtered_data, complete_years)
     return calculate_average_ideal_days_per_year(complete_data, complete_years)
+
+
+# Function to iterate over dataset and write all results to a CSV
+def write_all_results_to_csv(dataset, output_path):
+    """Iterate over the dataset and write ICAO codes and aairtd to a CSV file."""
+    results = []
+
+    for file_path, time_zone in dataset.items():
+        icao_code = call_sign(file_path)
+        aairtd = average_annual_ideal_run_temp_days(file_path, time_zone)
+        
+        # Append the result as a dictionary
+        results.append({"icao_code": icao_code, "aairtd": aairtd})
+    
+    # Convert results to a DataFrame and write to CSV
+    results_df = pd.DataFrame(results)
+    results_df.to_csv(output_path, index=False)
