@@ -1,4 +1,5 @@
 import pandas as pd
+from datetime import datetime
 
 # Function to pull ICAO call sign
 def call_sign(file_path):
@@ -73,9 +74,13 @@ def average_annual_ideal_run_temp_days(file_path, time_zone):
     return calculate_average_ideal_days_per_year(complete_data, complete_years)
 
 
-# Function to iterate over dataset and write all results to a CSV
-def write_all_results_to_csv(dataset, output_path):
+def write_all_results_to_csv(dataset, output_path=None):
     """Iterate over the dataset and write ICAO codes and aairtd to a CSV file."""
+    # Set default output path with date and time if none is provided
+    if output_path is None:
+        timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+        output_path = f"results_{timestamp}.csv"
+    
     results = []
 
     for file_path, time_zone in dataset.items():
@@ -88,3 +93,4 @@ def write_all_results_to_csv(dataset, output_path):
     # Convert results to a DataFrame and write to CSV
     results_df = pd.DataFrame(results)
     results_df.to_csv(output_path, index=False)
+    print(f"Results written to {output_path}")
