@@ -2,7 +2,7 @@ import pandas as pd
 from datetime import datetime
 import json
 import requests
-
+import os
 
 def get_stations_from_networks():
     """Build a station list by using a bunch of IEM networks."""
@@ -31,31 +31,89 @@ def get_stations_from_networks():
     
     return stations
 
-# Example usage
-station_list = get_stations_from_networks()
-print(f"Total stations found: {len(station_list)}")
+def download_station_data(station_list, output_dir, base_url=None):
+    """
+    Download data for each station from the specified or default base URL and save as CSV files.
 
+    Parameters:
+    - station_list: List of station IDs to download data for.
+    - output_dir: Directory to save the CSV files.
+    - base_url: (Optional) The base URL with a placeholder for the station ID. Defaults to IEM URL.
+    """
+    # Set a default base URL if none is provided
+    if base_url is None:
+        base_url = (
+            "https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?"
+            "station=STATION_ID&data=feel&year1=1993&month1=1&day1=1&year2=2023&month2=1&day2=1&"
+            "tz=Etc%2FUTC&format=onlycomma&latlon=no&elev=no&missing=M&trace=T&direct=no&report_type=3"
+        )
 
-def get_cleaned_station_list(station_list):
-    """Apply cleaning to a list of station IDs and remove any invalid entries."""
-    cleaned_stations = []
+    # Ensure the output directory exists
+    os.makedirs(output_dir, exist_ok=True)
+
     for station in station_list:
-        # Exclude IDs that start with a number
-        if station[0].isdigit():
+        # Skip invalid entries
+        if station is None:
             continue
-        # Keep IDs that are exactly 4 characters long unchanged
-        elif len(station) == 4:
-            cleaned_stations.append(station)
-        # Add "K" in front of IDs shorter than 4 characters
-        else:
-            cleaned_stations.append(f"K{station}")
-    return cleaned_stations
 
+        # Construct the URL for each station
+        url = base_url.replace("STATION_ID", station)
+        
+        # Download and save the file
+        try:
+            response = requests.get(url)
+            response.raise_for_status()  # Check for request errors
+            
+            # Define the output file path
+            output_file = os.path.join(output_dir, f"{station}_data.csv")
+            
+            # Write to CSV file
+            with open(output_file, "wb") as file:
+                file.write(response.content)
+                
+            print(f"Downloaded data for station: {station}")
+        
+        except requests.RequestException as e:
+            print(f"Failed to download data for station: {station}. Error: {e}")    
+
+def get_file_paths(directory):
+    """
+    Get all file paths in a specified directory.
+
+    Parameters:
+    - directory: The path to the directory to search in.
+
+    Returns:
+    - A list of full file paths for all files in the directory.
+    """
+    dataset = []
+    for root, _, files in os.walk(directory):
+        for file in files:
+            if file.endswith(".csv"):  # Only add CSV files
+                dataset.append(os.path.join(root, file))
+    return dataset
 
 # Function to pull ICAO call sign
 def call_sign(file_path):
-    icao_code = pd.read_csv(file_path).iloc[0, 0]
-    return f"K{icao_code}"
+    # Read the CSV file
+    df = pd.read_csv(file_path)
+
+    # Check if the DataFrame is empty
+    if df.empty:
+        print(f"Warning: The file {file_path} is empty. Returning a default ICAO code.")
+        return "UNKNOWN"  # Return a default or placeholder value if the file is empty
+
+    # If not empty, extract the ICAO code
+    icao_code = df.iloc[0, 0]
+
+    # Ensure the ICAO code has the correct format
+    if len(icao_code) < 4:
+        return f"K{icao_code}"  # Add "K" if less than 4 characters
+    elif len(icao_code) == 4:
+        return icao_code  # Return as is if it's already 4 characters long
+    else:
+        print(f"Warning: The ICAO code {icao_code} is invalid. Returning default.")
+        return "KUNKNOWN"  # Handle unexpected lengths
 
 # Function to load data from CSV
 def load_data(file_path):
@@ -69,6 +127,7 @@ def preprocess_data(data):
     data["valid"] = pd.to_datetime(data["valid"], errors="coerce")
     data["feel"] = pd.to_numeric(data["feel"], errors="coerce")
     return data
+
 
 # Function to localize and convert time to a specific timezone
 def convert_to_timezone(data, time_zone):
