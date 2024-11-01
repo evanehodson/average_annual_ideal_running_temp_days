@@ -672,7 +672,7 @@ KMLT,0,Millinocket,"Maine, United States Of America",121.0,0.08066666666666666,0
 KMLU,125,Monroe,"Louisiana, United States Of America",22.0,0.014666666666666717,0.3609270544783011
 KLWV,153,Lawrenceville,"Illinois, United States Of America",128.0,0.08533333333333337,0.5091560480147739
 KLXT,148,Lees Summit Muni,"Missouri, United States Of America",306.0,0.20399999999999996,0.6139722991689751
-KLXV,0,Leadville,"Colorado, United States Of America",3027.0,0.991,0.991
+KLXV,0,Leadville,"Colorado, United States Of America",3027.0,0.982,0.982
 KMAE,227,Madera,"California, United States Of America",77.0,0.05133333333333334,0.6801421975992613
 KMAF,177,Midland,"Texas, United States Of America",874.0,0.5826666666666667,1.0729713758079409
 KMAI,151,Marianna,"Florida, United States Of America",33.0,0.02200000000000002,0.4402825484764543
@@ -1185,7 +1185,7 @@ KHLR,150,Ft Hood/Killeen,"Texas, United States Of America",271.0,0.1806666666666
 KUYF,180,London,"Ohio, United States Of America",326.0,0.21733333333333338,0.7159482917820869
 KVDI,157,Vidalia Muni,"Georgia, United States Of America",81.0,0.05400000000000005,0.4889030470914128
 KVHN,206,Van Horn,"Texas, United States Of America",1200.0,0.8,1.3706371191135736
-KVTP,0,La Veta Pass,"Colorado, United States Of America",3086.0,0.9713333333333334,0.9713333333333334
+KVTP,0,La Veta Pass,"Colorado, United States Of America",3086.0,0.9426666666666667,0.9426666666666667
 KVUJ,173,Albemarle Stanly,"North Carolina, United States Of America",174.0,0.11599999999999999,0.5952243767313019
 KVVS,0,,,386.0,0.2573333333333333,0.2573333333333333
 KVWU,0,Waskish Muni,"Minnesota, United States Of America",359.0,0.2393333333333333,0.2393333333333333
@@ -1567,11 +1567,11 @@ KDCM,178,Chester Catawba,"South Carolina, United States Of America",191.0,0.1273
 KDCY,170,Daviess County,"Indiana, United States Of America",143.0,0.09533333333333338,0.5662474607571562
 KDKB,156,De Kalb,"Illinois, United States Of America",277.0,0.18466666666666665,0.6167996306555863
 KC83,263,Byron,"California, United States Of America",16.0,0.010666666666666713,0.7391985226223454
-KC99,0,,,3334.0,0.8886666666666667,0.8886666666666667
+KC99,0,,,3334.0,0.7773333333333333,0.7773333333333333
 KCBE,143,Cumberland Reg,"Maryland, United States Of America",226.0,0.15066666666666662,0.5467885503231763
 KCBK,213,Colby,"Kansas, United States Of America",970.0,0.6466666666666667,1.2366943674976918
 KCCO,169,Newnan,"Georgia, United States Of America",290.0,0.19333333333333336,0.661477377654663
-KCCU,0,Red Cliff Pass,"Colorado, United States Of America",3672.0,0.776,0.776
+KCCU,0,Red Cliff Pass,"Colorado, United States Of America",3672.0,0.552,0.552
 KCEY,159,Murray Kyle-Oak,"Kentucky, United States Of America",172.0,0.1146666666666667,0.5551098799630656
 KCFD,161,Bryan,"Texas, United States Of America",106.0,0.07066666666666666,0.5166500461680517
 KCHK,184,Chickasha,"Oklahoma, United States Of America",346.0,0.2306666666666667,0.7403619575253925
@@ -1594,7 +1594,7 @@ KBVS,213,Burlington/Mt V,"Washington, United States Of America",31.0,0.020666666
 KBWD,161,Brownwood,"Texas, United States Of America",420.0,0.28,0.725983379501385
 KBXA,158,Bogalusa Carr F,"Louisiana, United States Of America",35.0,0.023333333333333317,0.4610064635272391
 KBYY,128,Bay City,"Texas, United States Of America",12.0,0.008000000000000007,0.3625706371191136
-KC07,0,Walton Peak,"Colorado, United States Of America",3224.0,0.9253333333333333,0.9253333333333333
+KC07,0,Walton Peak,"Colorado, United States Of America",3224.0,0.8506666666666667,0.8506666666666667
 KC09,155,Morris-Washburn,"Illinois, United States Of America",179.0,0.11933333333333329,0.5486962142197599
 KC65,159,Plymouth,"Indiana, United States Of America",241.0,0.16066666666666662,0.6011098799630655
 KC75,160,Lacon,"Illinois, United States Of America",166.0,0.11066666666666669,0.5538799630655586
@@ -1651,7 +1651,7 @@ K5A6,176,Winona,"Mississippi, United States Of America",109.0,0.0726666666666666
 K5C1,180,S Antonio-Boerne,"Texas, United States Of America",422.0,0.2813333333333333,0.7799482917820868
 K5M9,166,Marion,"Kentucky, United States Of America",199.0,0.1326666666666667,0.5925004616805172
 K5R8,150,Dequincey Ind Ar,"Louisiana, United States Of America",26.0,0.01733333333333331,0.4328457987072945
-K5SM,0,Sunlight,"Colorado, United States Of America",3229.0,0.9236666666666666,0.9236666666666666
+K5SM,0,Sunlight,"Colorado, United States Of America",3229.0,0.8473333333333333,0.8473333333333333
 K66R,150,Columbus,"Texas, United States Of America",70.0,0.046666666666666634,0.4621791320406278
 K6A1,184,Butler,"Georgia, United States Of America",198.0,0.132,0.6416952908587258
 K6A2,199,Griffin-Spalding,"Georgia, United States Of America",290.0,0.19333333333333336,0.7445798707294552
@@ -1669,7 +1669,7 @@ K46U,0,Alpine,"Wyoming, United States Of America",1718.0,1.0,1.0
 K48A,195,Cochran,"Georgia, United States Of America",115.0,0.07666666666666666,0.6168328716528162
 K49A,204,Ellijay,"Georgia, United States Of America",449.0,0.29933333333333334,0.8644302862419206
 K4A9,201,Ft Payne/Isbell,"Alabama, United States Of America",273.0,0.18200000000000005,0.7387867036011081
-K4BM,0,Wilkerson Pass,"Colorado, United States Of America",3432.0,0.856,0.856
+K4BM,0,Wilkerson Pass,"Colorado, United States Of America",3432.0,0.712,0.712
 K4F2,171,Carthage,"Texas, United States Of America",76.0,0.05066666666666664,0.5243508771929823
 K4I3,128,Mt Vernon/Knox,"Ohio, United States Of America",361.0,0.2406666666666667,0.5952373037857803
 K4O4,184,Idabel,"Oklahoma, United States Of America",148.0,0.09866666666666668,0.6083619575253925
@@ -1722,7 +1722,7 @@ K05U,202,Eureka,"Nevada, United States Of America",1813.0,1.0,1.559556786703601
 K06C,127,Chicago/Schaumbg,"Illinois, United States Of America",243.0,0.16200000000000003,0.5138005540166206
 K0A0,264,,,1401.0,0.9339999999999999,1.6653019390581716
 K0A9,193,Elizabethton,"Tennessee, United States Of America",479.0,0.31933333333333336,0.8539593721144968
-K0CO,0,Berthoud Pass,"Colorado, United States Of America",3804.0,0.732,0.732
+K0CO,0,Berthoud Pass,"Colorado, United States Of America",3804.0,0.46399999999999997,0.46399999999999997
 K0F2,173,Bowie,"Texas, United States Of America",330.0,0.21999999999999997,0.6992243767313019
 K0J6,0,,,109.0,0.07266666666666666,0.07266666666666666
 K0R0,142,Columbia-Marion,"Mississippi, United States Of America",76.0,0.05066666666666664,0.4440184672206833
@@ -1741,7 +1741,7 @@ KTMT,254,Austin,"Nevada, United States Of America",1748.0,1.0,1.703601108033241
 KTNB,211,Boone Watauga Ct,"North Carolina, United States Of America",958.0,0.6386666666666667,1.2231542012927055
 KVCV,209,Victorville,"California, United States Of America",871.0,0.5806666666666667,1.1596140350877193
 KVES,177,Versailles,"Ohio, United States Of America",308.0,0.20533333333333337,0.6956380424746076
-KCPW,0,Wolf Creek Pass,"Colorado, United States Of America",3570.0,0.81,0.81
+KCPW,0,Wolf Creek Pass,"Colorado, United States Of America",3570.0,0.62,0.62
 KBAB,282,Beale Afb/Marysv,"California, United States Of America",31.0,0.020666666666666722,0.8018301015697138
 KF45,44,West Palm Beach,"Florida, United States Of America",6.0,0.0040000000000000036,0.1258836565096953
 KSLE,229,Salem,"Oregon, United States Of America",63.0,0.04200000000000004,0.6763490304709142
